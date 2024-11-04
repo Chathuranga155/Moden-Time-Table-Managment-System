@@ -1,0 +1,52 @@
+
+        
+        <!-- Event Cards -->
+        <div class="row">
+            {% for event in s_events %}
+            <div class="col-sm-12">
+                <div class="card card-stretch mb-3">
+                    <div class="card-body">
+                        <div class="d-flex flex-wrap align-items-center justify-content-between">
+                            <!-- Event Date and Title Section -->
+                            <div class="d-flex flex-wrap align-items-center">
+                                <div class="date mr-4 text-center">
+                                    <h4 class="text-info">{{ event.start|date:"d M" }}</h4> <!-- Event Date -->
+                                </div>
+                                <div class="border-left pl-3">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <h5 class="mb-0">{{ event.name }}</h5> <!-- Event Title -->
+                                    </div>
+                                    <div class="d-flex align-items-center mb-2">
+                                        <h6 class="mb-0">
+                                            <a href="{{ event.url }}" class="text-decoration-none">
+                                                <span class="bg-info text-white px-2 py-1 rounded ml-3">Click Here</span>
+                                            </a>
+                                        </h6>
+                                    </div>
+                                    <div class="d-flex flex-wrap align-items-center">
+                                        <p class="mb-0 pr-3">
+                                            <i class="las la-clock mr-2 text-info"></i>{{ event.start|date:"h:i A" }} - {{ event.end|date:"h:i A" }} <!-- Event Time -->
+                                        </p>
+                                        <p class="mb-0">
+                                            <i class="las la-map-marker mr-2 text-info"></i>{{ event.location }} <!-- Event Location -->
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Action Buttons: Edit and Delete -->
+                            <div class="d-flex align-items-center mt-lg-0 mt-2">
+                                <a class="badge badge-light mr-3" href="#" data-toggle="tooltip" data-placement="top" title="Edit">
+                                    <i class="ri-edit-box-line"></i>
+                                </a> <!-- Edit Icon -->
+                                <a class="badge badge-light" href="#" data-toggle="tooltip" data-placement="top" title="Delete">
+                                    <i class="ri-delete-bin-line"></i>
+                                </a> <!-- Delete Icon -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    

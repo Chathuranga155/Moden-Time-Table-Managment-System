@@ -1,0 +1,408 @@
+<!-- templates/login.html -->
+{% comment %} <h2>Login</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+</form> {% endcomment %}
+
+
+{% load static %}
+
+{% include '../login_css.html' %}
+
+<div class="container-fluid vh-100 d-flex">
+    <div class="row w-100 no-gutters">
+        <!-- Left Image Section -->
+        <div class="col-lg-7 d-none d-lg-block p-0">
+            <img src="{% static 'assets/images/login/img01.png' %}" class="img-fluid h-100 w-100" alt="Campus Image">
+        </div>
+        
+        <!-- Right Form Section -->
+        <div class="col-lg-5 d-flex flex-column justify-content-center align-items-center bg-white p-4 p-lg-5">
+            <div class="text-center">
+                <div class="d-flex justify-content-center align-items-center mb-4">
+                    <img src="{% static 'assets/images/login/logo01.svg' %}" alt="SLTC Logo" style="width: 120px; margin-right: 15px;">
+                    <h2 class="font-weight-bold m-0">SLTC Research University</h2>
+                </div>
+                <h1 class="font-weight-bold text-gradient display-4">Xeduler</h1>
+                <h4 class="text-secondary mb-4">Student Login</h4>
+            </div>
+
+            <form method="POST" class="w-100">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    {% comment %} <input type="text" name="login" class="form-control rounded-pill shiny-border" id="login" placeholder="example@sltc.ac.lk or User ID" required> {% endcomment %}
+                    {{ form.as_p }}
+                </div>
+                <div class="form-group">
+                    {% comment %} <input type="password" name="password" class="form-control rounded-pill shiny-border" id="password" placeholder="**********" required> {% endcomment %}
+                </div>
+
+                {% if messages %}
+                    <div class="alert alert-danger">
+                        {% for message in messages %}
+                            {{ message }}<br>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                <button type="submit" class="btn btn-primary btn-block rounded-pill shiny-button mb-3">SUBMIT</button>
+
+                <button type="button" class="btn btn-outline-primary btn-block mt-3 rounded-pill shiny-border">
+                    <!-- Google login SVG and text here -->
+                    Google
+                </button>
+
+                <div class="text-center mt-4">
+                    <div class="row justify-content-center">
+                        <div class="col-auto">
+                            <a href="" class="btn btn-primary rounded-pill">Lecturer's Login</a>
+                        </div>
+                        <div class="col-auto">
+                            <a href="/admin/" class="btn btn-primary rounded-pill">Admin's Login</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+<link rel="stylesheet" href="../assets/vendor/remixicon/fonts/remixicon.css">    <!-- Fullcalender CSS -->
+<link rel='stylesheet' href='../assets/vendor/fullcalendar/core/main.css' />
+<link rel='stylesheet' href='../assets/vendor/fullcalendar/daygrid/main.css' />
+<link rel='stylesheet' href='../assets/vendor/fullcalendar/timegrid/main.css' />
+<link rel='stylesheet' href='../assets/vendor/fullcalendar/list/main.css' />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% include '../header.html' %}
+
+{% load static %}
+
+
+
+
+
+
+<div class="content-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 mb-4">
+                <div class="py-4 border-bottom">
+                    <div class="float-left"><a href="{% url 'dashboard' %}" class="badge bg-white back-arrow"><i class="las la-angle-left"></i></a></div>
+                    <div class="form-title text-center">
+                        <h3>Add  Event Type</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="card card-block card-stretch create-workform">                    
+                    <div class="card-body p-5">
+                        <div class="row">
+                            <div class="col-lg-6 mb-4">
+                                <label class="title">Event name *</label>
+                                <input type="text" class="form-control" placeholder="Name..">
+                            </div>
+                            <div class="col-lg-6 mb-4">
+                                <label class="title">Location</label>
+                                <div class="search-dropdown-select device-search">   
+                                    <div class="input-prepend input-append">
+                                        <div class="btn-group w-100">
+                                            <label class="mb-0 w-100 form-control dropdown-toggle" data-toggle="dropdown">
+                                            <input class="dropdown-toggle search-query text search-input" type="text"  placeholder="Add a Location"><span class="search-replace"></span>
+                                            <span class="caret"><!--icon--></span>
+                                            </label>
+                                            <ul class="dropdown-menu w-100 border-none">
+                                                <li>
+                                                    <a href="#">
+                                                        <div class="item">
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="i-icon text-danger mr-2">
+                                                                    <i class="fas fa-map-marker-alt"></i>
+                                                                </div>
+                                                                <div class="ml-2">
+                                                                    <h6>In-person meeting</h6>
+                                                                    <p class="mb-0">Set an address or place</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <div class="item">
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="i-icon text-primary mr-2">
+                                                                    <i class="fas fa-phone-alt"></i>
+                                                                </div>
+                                                                <div class="ml-2">
+                                                                    <h6>Phone call</h6>
+                                                                    <p class="mb-0">Inbound or outbound calls</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <div class="item">
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="i-icon text-success mr-2">
+                                                                    <i class="fas fa-video"></i>
+                                                                </div>
+                                                                <div class="ml-2">
+                                                                    <h6>Google Meet</h6>
+                                                                    <p class="mb-0">Web conference</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                            
+                            <div class="col-lg-12 mb-4">
+                                <label class="title mb-3">Dscription/Instructions</label>
+                                   <input type="text" class="form-control">
+                                </div>  
+                            </div>
+                            <div class="col-lg-12 mb-4">
+                                <label class="title">Event link *</label>
+                                <input type="text" class="form-control" value="page_eventadd/{{user.username}}/">
+                            </div>
+
+
+
+                            <div class="col-lg-12 mb-4">
+                                
+
+<div class="col-lg-12 mb-4">
+    <label class="title">Type</label>
+    <div class="search-dropdown-select device-search">
+        <div class="btn-group w-100">
+            <label class="mb-0 w-100 form-control dropdown-toggle" data-toggle="dropdown">
+                <input class="dropdown-toggle search-query text search-input" type="text" placeholder="Select Type">
+                <span class="search-replace"></span>
+                <span class="caret"><!--icon--></span>
+            </label>
+            <ul class="dropdown-menu w-100 border-none">
+                <li>
+                    <a href="#">
+                        <div class="item d-flex align-items-center">
+                            <div class="i-icon text-danger mr-2">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="ml-2">
+                                <h6>One to One</h6>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="item d-flex align-items-center">
+                            <div class="i-icon text-primary mr-2">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="ml-2">
+                                <h6>Group</h6>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+    <!-- Modal -->
+
+    <div class="row">
+        <div class="col-lg-6 mb-4">
+            <label class="title">Start date/time</label>
+            <div class="input-group date" id="start-datetimepicker">
+                <input type="text" class="form-control" placeholder="Select start date/time" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    
+        <div class="col-lg-6 mb-4">
+            <label class="title">End date/time</label>
+            <div class="input-group date" id="end-datetimepicker">
+                <input type="text" class="form-control" placeholder="Select end date/time" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    
+    
+    
+                    <div class="col-lg-12 mt-3">
+                        <div class="d-flex flex-wrap align-items-ceter justify-content-center">
+                            <button type="submit" data-dismiss="modal" class="btn btn-primary mr-4">Cancel</button>
+                            <button type="submit" data-dismiss="modal" class="btn btn-outline-primary">Save</button>
+                        </div>
+                    </div>  
+                
+
+<script>
+    $(document).ready(function () {
+        $('#start-datetimepicker').datetimepicker({
+            format: 'MM/DD/YYYY hh:mm A', // 12-hour format with AM/PM
+            showTodayButton: true,
+            sideBySide: true // Show calendar and time side by side
+        });
+    
+        $('#end-datetimepicker').datetimepicker({
+            format: 'MM/DD/YYYY hh:mm A',
+            showTodayButton: true,
+            sideBySide: true,
+            useCurrent: false // To prevent the end date from auto-selecting the start date
+        });
+    
+        // Linking start and end date pickers to ensure proper range selection
+        $('#start-datetimepicker').on('dp.change', function (e) {
+            $('#end-datetimepicker').data('DateTimePicker').minDate(e.date);
+        });
+        $('#end-datetimepicker').on('dp.change', function (e) {
+            $('#start-datetimepicker').data('DateTimePicker').maxDate(e.date);
+        });
+    });
+    
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+
+
+
+
+    {% include '../footer.html' %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="today_events">
+
+        <h5>Today Schedule</h5><br />
+
+            <div class="row">
+                
+                    <div class="col-sm-6"> 
+                        
+                        <div class="card card-block card-stretch">
+                            <div class="card-body">
+                              <div class="d-flex flex-wrap align-items-center justify-content-between">
+                                <div class="d-flex flex-wrap align-items-center">
+                                  <div class="date mr-3">
+                                    <h4 class="text-info">15 Dec</h4>
+                                  </div>
+                                  <div class="border-left-event pl-3">
+                                    <div class="media align-items-top">
+                                      <h5 class="mb-3">Calendify Inner Pages</h5>
+                                      <div class="badge badge-color ml-3">Upcoming</div>
+                                    </div>
+                                    <div class="media align-items-center">
+                                      <p class="mb-0 pr-3">
+                                        <i class="las la-clock mr-2 text-info"></i>08 Pm - 09 Pm
+                                      </p>
+                                      <p class="mb-0">
+                                        <i class="las la-map-marker mr-2 text-info"></i>1 Circle Street Colombo
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="d-flex align-items-center list-action mt-lg-0 mt-2">
+                                  <a class="badge mr-3" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" href="#"><i class="ri-edit-box-line"></i></a>
+                                  <a class="badge" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" href="#"><i class="ri-delete-bin-line"></i></a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                       
+                        
+                        
+                        
+                        
+                    <div>
+                    
+                    <div class="col-sm-6"> <div>
+    
+                </div>
+        </div>
+         
+
+        <div class="brake  my-3"></div>
+
+    

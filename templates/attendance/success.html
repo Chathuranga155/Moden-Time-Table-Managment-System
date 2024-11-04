@@ -1,0 +1,9 @@
+<!-- attendance/templates/attendance/success.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Attendance Recorded Successfully!</h2>
+    <a href="{% url 'attendance' %}" class="btn btn-primary mt-3">Back to Attendance</a>
+</div>
+{% endblock %}

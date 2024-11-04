@@ -1,0 +1,120 @@
+
+
+{% load static %}
+
+{% include '../header.html' %}
+
+
+
+<div class="content-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 mb-4">
+                <div class="py-4 border-bottom">
+                    <div class="float-left"><a href="index.html" class="badge bg-white back-arrow"><i class="las la-angle-left"></i></a></div>
+                    <div class="form-title text-center">
+                        <h3>Calendar Connections</h3>  <br>
+
+                        <p>  This part is    <span class="under-development"> UNDER DEVELOPMENT . . . </span> </p>
+
+                        <style>
+                            .under-development {
+                                letter-spacing: 2px; /* Adds more space between letters */
+                                color: gold; /* Attractive gold color */
+                                font-weight: bold; /* Makes the text bold for emphasis */
+                                font-size: 1.2em; /* Slightly increase the font size */
+                                text-transform: uppercase; /* Make the text all uppercase */
+                            }
+                        </style>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="d-flex flex-wrap justify-content-between mb-4 calender-account">
+                    <div class="title">
+                        <h4>My Calendar Account</h4>
+                    </div>
+                    <div class="d-flex align-items-center"> 
+                        <a href="#" class="btn btn-primary pr-5 position-relative">Add Account<span class="event-add-btn"><i class="ri-add-line"></i></span></a>                                                     
+                    </div>
+                </div>
+                
+             
+                <div class="card card-block card-stretch calender-account">                    
+                    <div class="card-body">
+                        <div class="d-flex flex-wrap align-items-center justify-content-between">
+                            <div class="media flex-wrap align-items-center">
+                                <div class="icon iq-icon-box-2 box-shadow rounded-circle mr-3">
+                                    <i class="las la-calendar"></i>
+                                </div>
+                                <div>
+                                    <h6>{{user.email}}</h6>
+                                </div>
+                            </div>
+                            <div class="disconnect-btn">
+                                <a href="#"><i class="las la-plug pr-2"></i>Disconnect</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="popup text-left" id="popup">
+                <h4 class="mb-3">Add Action</h4>
+                <div class="content create-workform">
+                    <div class="form-group">
+                      <h6 class="form-label mb-3">Copy Your Link</h6>
+                      <div class="input-group">
+                        <input type="text" class="form-control" readonly value="{{ user.username }}">
+                        <div class="input-group-append">
+                          <span class="input-group-text" id="basic-addon2"><i class="las la-link"></i></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <h6 class="form-label mb-3">Email Your Link</h6>
+                      <div class="input-group">
+                        <input type="text" class="form-control" readonly value="{{ user.email }}">
+                        <div class="input-group-append">
+                          <span class="input-group-text" id="basic-addon3"><i class="las la-envelope"></i></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <h6 class="form-label mb-3">Add to Your Website</h6>
+                      <div class="input-group">
+                        <input type="text" class="form-control" readonly value="{{ user.username }}">
+                        <div class="input-group-append">
+                          <span class="input-group-text" id="basic-addon4"><i class="las la-code"></i></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-12 mt-3">
+                        <div class="d-flex flex-wrap align-items-ceter justify-content-center">
+                            <button type="submit" data-dismiss="modal" class="btn btn-primary mr-4">Cancel</button>
+                            <button type="submit" data-dismiss="modal" class="btn btn-outline-primary">Save</button>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+{% include '../footer.html' %}

@@ -1,0 +1,199 @@
+{% load static %}
+
+{% include './t_header.html' %}
+
+<style>
+    .closebtn {
+        position: absolute;
+        top: 30px;
+        right: 25px;
+        font-size: 36px;
+        color: white;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .offcanvas {
+
+        margin-top: 80px;
+
+    }
+</style>
+
+
+
+<div class="content-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 mb-3">
+                <div class="py-3 border-bottom">
+                    <div class="form-title text-center">
+                        <h3>Integrations</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="card card-block card-stretch">                    
+                    <div class="card-body">
+                        <div class="d-flex flex-wrap align-items-center justify-content-between">
+                            <h6 class="mb-3 mb-md-0">Your API Key</h6>
+                            <input type="text" class="form-control api-password" value="GG1AU9QJUGH0RSGUUR90WO1Z" id="api-password">  
+                            <div class="media flex-wrap api-link">
+                                <a href="#" class="btn btn-outline-primary mr-4" data-extra-toggle="copy" data-input="#api-password" title="Copy to clipboard" data-toggle="tooltip"><i class="las la-link pr-2"></i>Copy Key</a>
+                                <a href="#" class="btn btn-primary" data-extra-toggle="random-text" data-input=".api-password" data-length="24"><i class="las la-sync pr-2"></i>Regenerate Key</a>
+                            </div>                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="card card-block card-stretch card-height">
+                    <div class="card-body rounded work-detail work-detail-info">
+                        <div class="icon iq-icon-box-2 mb-3 rounded">
+                            <i class="fab fa-chrome"></i>
+                        </div>
+                        <h5 class="mb-2">Chrome</h5>  
+                        <p class="card-description mb-2">Connect Chrome, schedule events, and manage meetings effortlessly.</p>          
+                        <div class="pt-3">
+                            <a href="#" class="btn btn-info mr-3 px-3 btn-calendify">Get Chrome</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="card card-block card-stretch card-height">
+                    <div class="card-body rounded work-detail work-detail-danger">
+                        <div class="icon iq-icon-box-2 mb-3 rounded">
+                            <i class="fab fa-mailchimp"></i>
+                        </div>
+                        <h5 class="mb-2">Mailchimp</h5>  
+                        <p class="card-description mb-2">Integrate Mailchimp for easy event scheduling and email marketing.</p>          
+                        <div class="pt-3">
+                            <a href="#" class="btn btn-danger mr-3 px-3 btn-calendify">Get Mailchimp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="card card-block card-stretch card-height">
+                    <div class="card-body rounded work-detail work-detail-success">
+                        <div class="icon iq-icon-box-2 mb-3 rounded">
+                            <i class="fab fa-paypal"></i>
+                        </div>
+                        <h5 class="mb-2">PayPal</h5>  
+                        <p class="card-description mb-2">Link PayPal, create meetings, and manage transactions with ease.</p>          
+                        <div class="pt-3">
+                            <a href="#" class="btn btn-success mr-3 px-3 btn-calendify">Get PayPal</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="card card-block card-stretch card-height">
+                    <div class="card-body rounded work-detail work-detail-warning">
+                        <div class="icon iq-icon-box-2 mb-3 rounded">
+                            <i class="fab fa-facebook-f"></i>
+                        </div>
+                        <h5 class="mb-2">Facebook Pixel</h5>  
+                        <p class="card-description mb-2">Use Facebook Pixel to track events and improve ad targeting.</p>          
+                        <div class="pt-3">
+                            <a href="#" class="btn btn-warning mr-3 px-3 btn-calendify">Get Facebook</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="card card-block card-stretch card-height">
+                    <div class="card-body rounded work-detail work-detail-primary">
+                        <div class="icon iq-icon-box-2 mb-3 rounded">
+                            <i class="far fa-envelope"></i>
+                        </div>
+                        <h5 class="mb-2">Gmail</h5>  
+                        <p class="card-description mb-2">Integrate Gmail to schedule meetings and manage your inbox efficiently.</p>          
+                        <div class="pt-3">
+                            <a href="#" class="btn btn-primary mr-3 px-3 btn-calendify">Get Gmail</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="card card-block card-stretch card-height">
+                    <div class="card-body rounded work-detail work-detail-info">
+                        <div class="icon iq-icon-box-2 mb-3 rounded">
+                            <i class="far fa-calendar"></i>
+                        </div>
+                        <h5 class="mb-2">Calendar Connections</h5>  
+                        <p class="card-description mb-2">Sync your calendar for seamless event scheduling and management.</p>          
+                        <div class="pt-3">
+                            <a href="#" class="btn btn-info mr-3 px-3 btn-calendify">Get Calendar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="popup text-left" id="popup">
+                    <h4 class="mb-3">Add Action</h4>
+                    <div class="content create-workform">
+                        <div class="form-group">
+                            <h6 class="form-label mb-3">Copy Your Link</h6>
+                            <div class="input-group">
+                                <input type="text" class="form-control" readonly value="calendly.com/rickoshea1234">
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="basic-addon2"><i class="las la-link"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <h6 class="form-label mb-3">Email Your Link</h6>
+                            <div class="input-group">
+                                <input type="text" class="form-control" readonly value="calendly.com/rickoshea1234">
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="basic-addon3"><i class="las la-envelope"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <h6 class="form-label mb-3">Add to Your Website</h6>
+                            <div class="input-group">
+                                <input type="text" class="form-control" readonly value="calendly.com/rickoshea1234">
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="basic-addon4"><i class="las la-code"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 mt-3">
+                            <div class="d-flex flex-wrap align-items-center justify-content-center">
+                                <button type="submit" data-dismiss="modal" class="btn btn-primary mr-4">Cancel</button>
+                                <button type="submit" data-dismiss="modal" class="btn btn-outline-primary">Save</button>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% include './footer.html' %}

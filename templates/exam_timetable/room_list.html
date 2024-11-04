@@ -1,0 +1,233 @@
+
+
+
+
+
+
+
+{% include '../a_header.html' %}
+
+
+
+{% load static %}
+
+
+
+<style>
+
+
+    .offcanvas {
+
+        margin-top: 80px;
+
+    }
+    .main_card_sec{
+        height: 100vh;
+    }
+        .offcanvas {
+            margin-top: 80px;
+        }
+    
+        /* Add hover effect for rows */
+        #courseTable tbody tr:hover {
+            background-color: #f5f5f5;
+            cursor: pointer;
+        }
+    
+        /* Style the selected row when clicking the star icon */
+        .selected-row {
+            background-color: #dcdcdc !important;
+        }
+    
+        .action-icons a {
+            margin-right: 5px;
+            cursor: pointer;
+        }
+    </style>
+    
+ 
+
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    
+    <div class="content-page" id="main">
+        <div class="container-fluid   mt-5">
+            <div class="row mt-3  main_card_sec">
+                <div class="col-lg-12">
+                    <div class="card card-block card-stretch card-height">
+                        <div class="card-header d-flex justify-content-between">
+                            <div class="iq-header-title">
+                                <h4 class="card-title mb-0">Room List </h4>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="table-responsive data-table">
+                                <table id="courseTable" class="data-tables table" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Room Name</th>
+                                            <th>Capacity</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                       
+                                
+                                    {% for room in rooms %}
+                                        <tr>
+                                            <td>{{ room.room_name }}</td>
+                                            <td>{{ room.capacity }}</td>
+                                            <td>
+                                                <div class="d-flex align-items-center action-icons">
+                                                    <a class="badge bg-warning-light mr-2 star-icon" title="Select Row">
+                                                        <i class="far fa-star"></i>
+                                                    </a>
+    
+                                                    <a class="badge bg-success-light mr-2" title="View" href="#">
+                                                        <i class="lar la-eye"></i>
+                                                    </a>
+                                                   
+    
+    
+                                                        <a class="badge bg-success-light mr-2" title="View" href="{% url 'create_room' %}">
+                                                            <i class="las la-pencil-alt"></i> 
+                                                        </a>
+    
+                                                   
+                                                   
+    
+    
+                                                        <a class="badge bg-success-light mr-2" title="View" href="#">
+                                                            <i class="las la-trash"></i> 
+                                                        </a>
+                                                        
+                                                        {% comment %} <style>
+                                                        
+                                                            .dropbtn:hover, .dropbtn:focus {
+                                                              background-color: #2980B9;
+                                                            }
+                                                            
+                                                            .dropdown {
+                                                              position: relative;
+                                                              display: inline-block;
+                                                            }
+                                                            
+                                                            .dropdown-content {
+                                                              display: none;
+                                                              position: absolute;
+                                                              background-color: #f1f1f1;
+                                                              min-width: 160px;
+                                                              overflow: auto;
+                                                              box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                                                              z-index: 1;
+                                                            }
+                                                            
+                                                            .dropdown-content a {
+                                                              color: black;
+                                                              padding: 12px 16px;
+                                                              text-decoration: none;
+                                                              display: block;
+                                                            }
+                                                            
+                                                            .dropdown a:hover {background-color: #ddd;}
+                                                            
+                                                            .show {display: block;}
+                                                            </style>
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            <div class="dropdown">
+                                                              <span onclick="myFunction()" class="dropbtn">more</span>
+                                                              <div id="myDropdown" class="dropdown-content">
+                                                               
+                                                                <a class="dropdown-item" href="#">Edit</a>
+                                                            <a class="dropdown-item" href="#">Delete</a>
+                                                              
+                                                              </div>
+                                                            </div>
+                                                            
+                                                            <script>
+                                                    
+                                                            function myFunction() {
+                                                              document.getElementById("myDropdown").classList.toggle("show");
+                                                            }
+                                                            
+                                                          
+                                                            window.onclick = function(event) {
+                                                              if (!event.target.matches('.dropbtn')) {
+                                                                var dropdowns = document.getElementsByClassName("dropdown-content");
+                                                                var i;
+                                                                for (i = 0; i < dropdowns.length; i++) {
+                                                                  var openDropdown = dropdowns[i];
+                                                                  if (openDropdown.classList.contains('show')) {
+                                                                    openDropdown.classList.remove('show');
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                            </script> {% endcomment %}
+                                                            
+                                                            
+                                                            
+        
+        
+        
+                                                    </div>
+                                                    
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% include '../calender_footer.html' %}
+    
+    <script>
+        $(document).ready(function() {
+            // Initialize DataTable
+            $('#courseTable').DataTable({
+                "paging": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "lengthMenu": [5, 10, 25, 50, 100],
+                "language": {
+                    "search": "Filter records:",
+                    "lengthMenu": "Display _MENU_ courses per page"
+                }
+            });
+    
+            // Handle row selection on star icon click
+            $('.star-icon').on('click', function() {
+                const row = $(this).closest('tr');
+                row.toggleClass('selected-row');
+            });
+    
+            // Enable tooltips
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+    
+    
+    
+
+
+
+
+
+
+
+
+{% include '../calender_footer.html' %}

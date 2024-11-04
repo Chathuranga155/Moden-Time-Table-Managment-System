@@ -1,0 +1,114 @@
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Calendar Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-light"> {% endcomment %}
+
+
+{% include '../t_header.html' %}
+
+
+<div class="container pt-5 mt-5" ></div>
+
+<div class="container mt-5" id="main">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <h1 class="text-primary">My Calendar</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <!-- Card for Create Exam -->
+        <div class="col-md-4">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Create Exam</h5>
+                    <a href="{% url 'create_exam' %}" class="btn btn-primary">Go</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card for Exam List -->
+        <div class="col-md-4">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Exam List</h5>
+                    <a href="{% url 'exam_list' %}" class="btn btn-primary">View</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card for Create Course -->
+        <div class="col-md-4">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Create Course</h5>
+                    <a href="{% url 'create_course' %}" class="btn btn-primary">Create</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card for Course List -->
+        <div class="col-md-4">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Course List</h5>
+                    <a href="{% url 'course_list' %}" class="btn btn-primary">View</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card for Create Faculty -->
+        <div class="col-md-4">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Create Faculty</h5>
+                    <a href="{% url 'create_faculty' %}" class="btn btn-primary">Create</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card for Faculty List -->
+        <div class="col-md-4">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Faculty List</h5>
+                    <a href="{% url 'faculty_list' %}" class="btn btn-primary">View</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card for Create Room -->
+        <div class="col-md-4">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Create Room</h5>
+                    <a href="{% url 'create_room' %}" class="btn btn-primary">Create</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card for Room List -->
+        <div class="col-md-4">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Room List</h5>
+                    <a href="{% url 'room_list' %}" class="btn btn-primary">View</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include '../calender_footer.html' %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

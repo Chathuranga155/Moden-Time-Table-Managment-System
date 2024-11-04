@@ -1,0 +1,274 @@
+<!-- create_event.html -->
+
+
+{% include '../header.html' %} {% load static %}
+
+<div class="content-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 mb-4">
+        <div class="py-4 border-bottom">
+          <div class="float-left">
+            <a href="{% url 'dashboard' %}" class="badge bg-white back-arrow"
+              ><i class="las la-angle-left"></i
+            ></a>
+          </div>
+          <div class="form-title text-center">
+            <h2>Create Event</h2>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="col-lg-12">
+        <div class="card card-block card-stretch create-workform">
+               
+            
+
+        <div class="card-body">
+
+          <div class="row  mx-3  my-3">
+            <div class="col-sm-12">
+              <form method="POST">
+                {% csrf_token %} {{ form.as_p }}
+                <button type="submit" type="submit"
+                data-dismiss="modal"
+                class="btn btn-outline-primary">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+{% comment %}
+<div class="card-body p-5">
+  <div class="row">
+    <div class="col-lg-6 mb-4">
+      <label class="title">Event name *</label>
+      <input type="text" class="form-control" placeholder="Name.." />
+    </div>
+    <div class="col-lg-6 mb-4">
+      <label class="title">Location</label>
+      <div class="search-dropdown-select device-search">
+        <div class="input-prepend input-append">
+          <div class="btn-group w-100">
+            <label
+              class="mb-0 w-100 form-control dropdown-toggle"
+              data-toggle="dropdown"
+            >
+              <input
+                class="dropdown-toggle search-query text search-input"
+                type="text"
+                placeholder="Add a Location"
+              /><span class="search-replace"></span>
+              <span class="caret"><!--icon--></span>
+            </label>
+            <ul class="dropdown-menu w-100 border-none">
+              <li>
+                <a href="#">
+                  <div class="item">
+                    <div class="d-flex align-items-center">
+                      <div class="i-icon text-danger mr-2">
+                        <i class="fas fa-map-marker-alt"></i>
+                      </div>
+                      <div class="ml-2">
+                        <h6>In-person meeting</h6>
+                        <p class="mb-0">Set an address or place</p>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div class="item">
+                    <div class="d-flex align-items-center">
+                      <div class="i-icon text-primary mr-2">
+                        <i class="fas fa-phone-alt"></i>
+                      </div>
+                      <div class="ml-2">
+                        <h6>Phone call</h6>
+                        <p class="mb-0">Inbound or outbound calls</p>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <div class="item">
+                    <div class="d-flex align-items-center">
+                      <div class="i-icon text-success mr-2">
+                        <i class="fas fa-video"></i>
+                      </div>
+                      <div class="ml-2">
+                        <h6>Google Meet</h6>
+                        <p class="mb-0">Web conference</p>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-12 mb-4">
+      <label class="title mb-3">Dscription/Instructions</label>
+      <input type="text" class="form-control" />
+    </div>
+  </div>
+  <div class="col-lg-12 mb-4">
+    <label class="title">Event link *</label>
+    <input
+      type="text"
+      class="form-control"
+      value="page_eventadd/{{user.username}}/"
+    />
+  </div>
+
+  <div class="col-lg-12 mb-4">
+    <div class="col-lg-12 mb-4">
+      <label class="title">Type</label>
+      <div class="search-dropdown-select device-search">
+        <div class="btn-group w-100">
+          <label
+            class="mb-0 w-100 form-control dropdown-toggle"
+            data-toggle="dropdown"
+          >
+            <input
+              class="dropdown-toggle search-query text search-input"
+              type="text"
+              placeholder="Select Type"
+            />
+            <span class="search-replace"></span>
+            <span class="caret"><!--icon--></span>
+          </label>
+          <ul class="dropdown-menu w-100 border-none">
+            <li>
+              <a href="#">
+                <div class="item d-flex align-items-center">
+                  <div class="i-icon text-danger mr-2">
+                    <i class="fas fa-user"></i>
+                  </div>
+                  <div class="ml-2">
+                    <h6>One to One</h6>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <div class="item d-flex align-items-center">
+                  <div class="i-icon text-primary mr-2">
+                    <i class="fas fa-users"></i>
+                  </div>
+                  <div class="ml-2">
+                    <h6>Group</h6>
+                  </div>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Modal -->
+
+    <div class="row">
+      <div class="col-lg-6 mb-4">
+        <label class="title">Start date/time</label>
+        <div class="input-group date" id="start-datetimepicker">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Select start date/time"
+          />
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>
+      </div>
+
+      <div class="col-lg-6 mb-4">
+        <label class="title">End date/time</label>
+        <div class="input-group date" id="end-datetimepicker">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Select end date/time"
+          />
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-12 mt-3">
+      <div class="d-flex flex-wrap align-items-ceter justify-content-center">
+        <button type="submit" data-dismiss="modal" class="btn btn-primary mr-4">
+          Cancel
+        </button>
+        <button
+          type="submit"
+          data-dismiss="modal"
+          class="btn btn-outline-primary"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+    {% endcomment %}
+
+    <script>
+      $(document).ready(function () {
+        $("#start-datetimepicker").datetimepicker({
+          format: "MM/DD/YYYY hh:mm A", // 12-hour format with AM/PM
+          showTodayButton: true,
+          sideBySide: true, // Show calendar and time side by side
+        });
+
+        $("#end-datetimepicker").datetimepicker({
+          format: "MM/DD/YYYY hh:mm A",
+          showTodayButton: true,
+          sideBySide: true,
+          useCurrent: false, // To prevent the end date from auto-selecting the start date
+        });
+
+        // Linking start and end date pickers to ensure proper range selection
+        $("#start-datetimepicker").on("dp.change", function (e) {
+          $("#end-datetimepicker").data("DateTimePicker").minDate(e.date);
+        });
+        $("#end-datetimepicker").on("dp.change", function (e) {
+          $("#start-datetimepicker").data("DateTimePicker").maxDate(e.date);
+        });
+      });
+    </script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+
+    {% include '../footer.html' %}
+  </div>
+</div>

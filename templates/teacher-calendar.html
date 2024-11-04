@@ -1,0 +1,310 @@
+
+{% load static %}
+
+{% include './t_header.html' %}
+
+{% comment %} <link rel="stylesheet" href="{% static 'assets/vendor/remixicon/fonts/remixicon.css' %}">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/backend-plugin.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/remixicon.css' %}">
+<link rel="stylesheet" href="{% static 'css/remixicon.css' %}">
+<link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/line-awesome.min.css' %}">
+
+<link rel="stylesheet" href="{% static 'css/big.css' %}">
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}"> {% endcomment %}
+
+
+<!-- Modal for adding events -->
+
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Calendar</title>
+    <!-- Bootstrap CSS -->
+    {% comment %} <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet"> {% endcomment %}
+    <!-- FullCalendar CSS -->
+
+    <style>
+        .closebtn {
+            position: absolute;
+            top: 30px;
+            right: 25px;
+            font-size: 36px;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .offcanvas {
+
+            margin-top: 80px;
+
+        }
+    </style>
+
+    <link rel="stylesheet" href="{% static 'css/fullcalendar.css' %}">
+</head>
+<body>
+
+
+    <div class="content-page">
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 mb-4">
+                    <div class="py-4 border-bottom">
+                        <div class="form-title text-center">
+                           
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-sm-10">
+                            <h4 class="mb-3">Student Schedule </h4>
+                        </div>
+                        <div class="col-sm-2"></div>
+                    </div>
+                    
+                    <div class="d-flex flex-wrap align-items-center justify-content-between my-schedule mb-3">
+                       <div class="d-flex align-items-center justify-content-between"> 
+                            <div class="form-group mb-0">
+                                <select name="type" class="selectpicker form-control" data-style="py-0">
+                                    <option>Working Hours</option>
+                                    <option>Default Hours</option>
+                                    <option>Working Hours</option>
+                                    <option>Learning Hours</option>
+                                </select>
+                            </div>
+                            <div class="select-dropdown input-prepend input-append">
+                                <div class="btn-group">
+                                    <label data-toggle="dropdown">
+                                    <span class="dropdown-toggle search-query rounded btn bg-white btn-edit"><i class="las la-edit mr-0 text-center"></i></span><span class="search-replace"></span>
+                                    <span class="caret"><!--icon--></span>
+                                    </label>
+                                    <ul class="dropdown-menu w-100 border-none p-3">
+                                        <li><div class="item mb-2"><i class="ri-pencil-line mr-3"></i>Edit</div></li>
+                                        <li><div class="item"><i class="ri-delete-bin-6-line mr-3"></i>Delete</div></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>  
+                        <div class="create-workform">
+                            <a href="#" data-toggle="modal" data-target="#eventModal" class="btn btn-primary pr-5 position-relative">
+                                New Schedule <span class="add-btn"><i class="ri-add-line"></i></span>
+                            </a>
+                            
+                            <!-- Modal -->
+                            <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="eventModalLabel">Add New Event</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form id="eventForm">
+                                                <div class="form-group">
+                                                    <label for="eventName">Event Name</label>
+                                                    <input type="text" class="form-control" id="eventName" name="name" placeholder="Enter event name" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="eventStart">Start Date</label>
+                                                    <input type="datetime-local" class="form-control" id="eventStart" name="start" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="eventEnd">End Date</label>
+                                                    <input type="datetime-local" class="form-control" id="eventEnd" name="end" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="eventDescription">Description</label>
+                                                    <textarea class="form-control" id="eventDescription" name="description" rows="3" placeholder="Enter event description"></textarea>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="eventURL">Event URL</label>
+                                                    <input type="url" class="form-control" id="eventURL" name="url" placeholder="Enter event URL">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="eventColor">Event Color</label>
+                                                    <input type="color" class="form-control" id="eventColor" name="color" value="#ff0000">
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary" id="saveEventBtn">Save Event</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+                        </div>                 
+                    </div>
+                
+               
+                </div>
+     
+
+
+            <div id="calendar"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventModalLabel" aria-hidden="true" >
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="eventModalLabel">Add New Event</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="eventForm">
+                    <div class="form-group">
+                        <label for="eventName">Event Name</label>
+                        <input type="text" class="form-control" id="eventName" name="name" placeholder="Enter event name">
+                    </div>
+                    <div class="form-group">
+                        <label for="eventStart">Start Date</label>
+                        <input type="datetime-local" class="form-control" id="eventStart" name="start" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventEnd">End Date</label>
+                        <input type="datetime-local" class="form-control" id="eventEnd" name="end" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="eventDescription">Description</label>
+                        <textarea class="form-control" id="eventDescription" name="description" rows="3" placeholder="Enter event description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventURL">Event URL</label>
+                        <input type="url" class="form-control" id="eventURL" name="url" placeholder="Enter event URL">
+                    </div>
+                    <div class="form-group">
+                        <label for="eventColor">Event Color</label>
+                        <input type="color" class="form-control" id="eventColor" name="color" value="#ff0000">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="saveEventBtn">Save Event</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- FullCalendar JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        var calendar = $('#calendar').fullCalendar({
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay'
+            },
+            events: '/all_events/', // URL to fetch events
+            selectable: true,
+            selectHelper: true,
+            editable: true,
+            eventLimit: true,
+    
+            // Show modal for adding event with both date and time
+            select: function (start, end) {
+                // Use format with date and time
+                $('#eventStart').val(moment(start).format('YYYY-MM-DDTHH:mm'));
+                $('#eventEnd').val(moment(end).format('YYYY-MM-DDTHH:mm'));
+                $('#eventModal').modal('show');
+            },
+    
+            // Event click handler for displaying event details
+            eventClick: function (event) {
+                var eventDetails = `
+                    <h5>Event: ${event.name}</h5>
+                    <p>Description: ${event.description}</p>
+                    <p>Start: ${moment(event.start).format('YYYY-MM-DD hh:mm A')}</p>
+                    <p>End: ${moment(event.end).format('YYYY-MM-DD hh:mm A')}</p>
+                    <a href="${event.url}" target="_blank">More Info</a>
+                `;
+                $('#eventModal .modal-body').html(eventDetails);
+                $('#eventModal').modal('show');
+            }
+        });
+    
+        // Save event on modal form submit
+        $('#saveEventBtn').on('click', function () {
+            var eventData = {
+                name: $('#eventName').val(),
+                start: $('#eventStart').val(),
+                end: $('#eventEnd').val(),
+                description: $('#eventDescription').val(),
+                url: $('#eventURL').val(),
+                color: $('#eventColor').val(),
+                csrfmiddlewaretoken: getCookie('csrftoken')
+            };
+    
+            $.ajax({
+                type: "POST",
+                url: '/add_event/',  // Django view to add event
+                data: JSON.stringify(eventData),
+                contentType: 'application/json',
+                success: function () {
+                    calendar.fullCalendar('refetchEvents');
+                    $('#eventModal').modal('hide');
+                    alert("Event added successfully.");
+                },
+                error: function () {
+                    alert("Error adding event.");
+                }
+            });
+        });
+    
+        // CSRF token function
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+    });
+    
+    
+</script>
+
+</body>
+</html>
+{% include './calender_footer.html' %}

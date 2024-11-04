@@ -1,0 +1,58 @@
+
+{% include '../a_header.html' %}
+
+
+
+{% load static %}
+
+
+<style>
+
+
+    .offcanvas {
+
+        margin-top: 80px;
+
+    }
+</style>
+
+
+<div class="content-page " id="main" >
+    <div class="content-top mt-5">
+        <div class="container  mt-5" >
+            <div class="row">
+                <div class="col-lg-12 mb-3">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="navbar-breadcrumb">
+                            <h1 class="mb-1"> Create a New Faculty</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    <h1></h1>
+    <form method="POST" action="{% url 'create_faculty' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit"  class="btn btn-primary">Create Faculty</button>
+    </form>
+
+    
+    <br>
+    <a href="{% url 'faculty_list' %}">View Faculties</a>
+
+
+
+
+
+</div>
+</div>
+</div>
+
+
+
+
+{% include '../calender_footer.html' %}

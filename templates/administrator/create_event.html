@@ -1,0 +1,25 @@
+
+{% include '../header.html' %}
+
+
+
+{% load static %}
+
+<!-- create_event.html -->
+<h2>Create Event</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+</form>
+
+
+
+{% comment %} {% include '../header.html' %}
+
+
+
+{% load static %} {% endcomment %}
+
+
+{% include '../calender_footer.html' %}

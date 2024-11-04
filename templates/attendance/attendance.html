@@ -1,0 +1,83 @@
+<!-- attendance/templates/attendance/attendance.html -->
+
+{% include '../header.html' %}
+
+
+<div class="content-page " id="main" >
+    <div class="content-top mt-5">
+        <div class="container  mt-5" >
+            <div class="row">
+                <div class="col-lg-12 mb-3">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="navbar-breadcrumb">
+                            <h1 class="mb-1">Mark Attendance</h1>
+                            <h2></h2>
+                        </div>
+                    </div>
+                
+
+
+    
+
+    <form method="POST" enctype="multipart/form-data" id="attendanceForm">
+        {% csrf_token %}
+        <input type="hidden" name="user_id" value="{{ user.username }}">
+        <input type="hidden" name="captured_image" id="captured_image">
+        <button type="button" class="btn btn-primary" id="openCamera">Open Camera</button>
+        <button type="submit" class="btn btn-success mt-3" id="submitAttendance" style="display:none;">
+            Submit Attendance
+        </button>
+    </form>
+
+    <div class="mt-3">
+        <video id="video" width="640" height="480" autoplay style="display:none;"></video>
+        <canvas id="canvas" width="640" height="480" style="display:none;"></canvas>
+    </div>
+
+    {% if messages %}
+    <div class="mt-3">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+
+
+<script>
+    const video = document.getElementById('video');
+    const canvas = document.getElementById('canvas');
+    const openCameraButton = document.getElementById('openCamera');
+    const submitAttendanceButton = document.getElementById('submitAttendance');
+    const capturedImageInput = document.getElementById('captured_image');
+
+    openCameraButton.addEventListener('click', () => {
+        video.style.display = 'block';
+        canvas.style.display = 'none';
+        submitAttendanceButton.style.display = 'none';
+
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => { video.srcObject = stream; })
+            .catch(err => console.error("Error accessing webcam:", err));
+    });
+
+    video.addEventListener('click', () => {
+        const context = canvas.getContext('2d');
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+        video.style.display = 'none';
+        canvas.style.display = 'block';
+        submitAttendanceButton.style.display = 'block';
+
+        const imageData = canvas.toDataURL('image/png');
+        capturedImageInput.value = imageData;
+    });
+</script>
+
+{% include '../footer.html' %}

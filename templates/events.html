@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Calendar</title>
+
+    <!-- FullCalendar CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css" rel="stylesheet">
+
+    <!-- CSRF token for security -->
+    <script>
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        const csrftoken = getCookie('csrftoken');
+    </script>
+
+    <!-- FullCalendar JS -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
+</head>
+<body>
+    <div id="calendar"></div>
+
+    <!-- Include jQuery (optional but useful) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const calendarEl = document.getElementById('calendar');
+
+            const calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth', // or 'timeGridWeek'
+                events: '/all_events/',  // The URL for fetching event data
+
+                // Event click handler to show event details
+                eventClick: function (info) {
+                    info.jsEvent.preventDefault(); // prevent the default browser behavior
+
+                    // Show event details in a modal or alert
+                    alert('Event: ' + info.event.title + '\nDescription: ' + info.event.extendedProps.description);
+                    if (info.event.url) {
+                        window.open(info.event.url);  // Open the event's URL
+                    }
+                },
+                // You can add other FullCalendar configurations here
+            });
+
+            calendar.render();
+        });
+    </script>
+</body>
+</html>

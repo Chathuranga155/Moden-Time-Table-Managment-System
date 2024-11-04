@@ -1,0 +1,7 @@
+<!-- update_event.html -->
+<h2>Update Event</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Update</button>
+</form>

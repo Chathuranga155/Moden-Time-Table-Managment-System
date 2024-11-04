@@ -1,0 +1,52 @@
+
+
+{% include '../a_header.html' %}
+
+
+
+{% load static %}
+
+<style>
+
+
+    .offcanvas {
+
+        margin-top: 80px;
+
+    }
+</style>
+
+<div class="content-page " id="main" >
+    <div class="content-top mt-5">
+        <div class="container  mt-5" >
+            <div class="row">
+                <div class="col-lg-12 mb-3">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="navbar-breadcrumb">
+                            <h1 class="mb-1">Create New Exam</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+    <h1></h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit"   class="btn btn-primary">Create Exam</button>
+    </form>
+
+
+
+
+
+
+</div>
+</div>
+</div>
+
+
+
+{% include '../calender_footer.html' %}

@@ -1,0 +1,623 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>   Xeduler </title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'assets/images/favicon.ico' %}">
+
+    <!-- CSS Files -->
+
+    <link rel="stylesheet" href="{% static 'assets/vendor/remixicon/fonts/remixicon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/backend-plugin.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/remixicon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/remixicon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/line-awesome.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/big.css' %}">
+   
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Line Awesome CDN -->
+    
+
+    <link rel= "stylesheet" href= "https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" >
+
+</head>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+<body class="fixed-top-navbar top-nav">
+    <!-- Loader Start -->
+    {% comment %} <div id="loading">
+        <div id="loading-center">
+        </div>
+    </div> {% endcomment %}
+    <!-- Loader END -->
+
+
+    <div id="overlay" class="overlay"></div> 
+    
+    <div id="offcanvas" class="offcanvas">
+        <button class="closebtn" onclick="closeNav()">×</button>
+           <div class="mx-2">
+
+            <div class="row">
+                <div class="col-sm-5"><h2>Xeduler</h2></div>
+                <div class="col-sm-7">
+                    <a href="#">
+                        <div class="cssload-container">
+                        <ul class="cssload-flex-container">
+                            <li>
+                            <span class="cssload-loading"></span>
+                            </li>
+                        </div></a>
+                    </div>	
+                </div>
+            </div>
+
+            <ul>
+                
+                <div class="container">
+                    <div class="comming_events">
+                        <div class="card mx-2 main_card_bg" 
+                            style="background: linear-gradient(#bae6f1, #6bc9da); height: 350px; overflow: hidden;">
+                            
+                            <div class="card-body" id="eventScroll">
+                                <h3 class="my-1">Coming Events</h3>
+                
+                                <!-- Event Card 1 -->
+                                <div class="event-card card mb-2">
+                                    <div class="card-body p-1">
+                                        <div class="row">
+                                            <div class="col-sm-10">
+                                               <a href="{% url 's_calendar_view' %}"> Data Sciece </a>
+                                            </div>
+                                            <div class="col-sm-2 d-flex align-items-center justify-content-end">
+                                                <button class="close-btn" onclick="closeCard(this)">
+                                                    &times;
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                                <!-- Event Card 2 -->
+                                <div class="event-card card mb-2">
+                                    <div class="card-body p-1">
+                                        <div class="row">
+                                            <div class="col-sm-10">
+                                               <a href="{% url 's_calendar_view' %}"> Software Engineering </a>
+                                            </div>
+                                            <div class="col-sm-2 d-flex align-items-center justify-content-end">
+                                                <button class="close-btn" onclick="closeCard(this)">
+                                                    &times;
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                                <!-- Event Card 3 -->
+
+                                <div class="event-card card mb-2">
+                                    <div class="card-body p-1">
+                                        <div class="row">
+                                            <div class="col-sm-10">
+                                               <a href="{% url 's_calendar_view' %}"> Cloud Computing </a>
+                                            </div>
+                                            <div class="col-sm-2 d-flex align-items-center justify-content-end">
+                                                <button class="close-btn" onclick="closeCard(this)">
+                                                    &times;
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CSS Styling -->
+                <style>
+                    /* Scroll container styling */
+                    #eventScroll {
+                        max-height: 350px;
+                        overflow-y: auto;
+                        scrollbar-width: none; /* Hide scrollbar in Firefox */
+                        -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
+                    }
+                
+                    /* Hide scrollbar for Chrome, Safari, etc. */
+                    #eventScroll::-webkit-scrollbar {
+                        display: none;
+                    }
+                
+                    /* Smooth scrolling */
+                    #eventScroll {
+                        scroll-behavior: smooth;
+                    }
+                
+                    .event-card {
+                        background: #fff;
+                        border-radius: 5px;
+                        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+                    }
+                
+                    /* Close button styling */
+                    .close-btn {
+                        background-color: #6bc9da;
+                        color: white;
+                        border: none;
+                        border-radius: 45%;
+                        width: 30px;
+                        height: 30px;
+                        padding: 5px;
+                        font-size: 20px;
+                        line-height: 1;
+                        text-align: center;
+                        cursor: pointer;
+                    }
+                
+                    /* Close button hover effect */
+                    .close-btn:hover {
+                        background-color: #267f8f;
+                    }
+
+                    /* Styling for the entire offcanvas scroll area */
+#offcanvas {
+    height: 100vh; /* Make it full height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
+}
+
+/* Hide scrollbar for Chrome, Safari, etc. */
+#offcanvas::-webkit-scrollbar {
+    display: none;
+}
+
+/* Ensure smooth scrolling */
+#offcanvas {
+    scroll-behavior: smooth;
+}
+
+
+
+                </style>
+                
+                <!-- JavaScript -->
+                <script>
+                    function closeCard(button) {
+                        // Find the closest event-card div and remove it
+                        const eventCard = button.closest('.event-card');
+                        if (eventCard) {
+                            eventCard.remove();
+                        }
+                    }
+                </script>
+                 
+            </ul>
+               
+            </ul>
+               
+           </div>
+       
+    </div>
+
+
+
+
+
+    <!-- Wrapper Start -->
+    <div class="wrapper">
+
+        
+
+
+      <div class="iq-top-navbar"  style="background: rgb(74,221,222);
+background: linear-gradient(90deg, rgba(74,221,222,1) 35%, rgba(102,167,236,1) 100%);">
+          <div class="container-fluid">
+              <div class="iq-navbar-custom">
+                  <div class="d-flex align-items-center justify-content-between">
+                  
+
+                    {% comment %} sidebar left slider {% endcomment %}
+
+                 
+
+                   
+
+                    <button class="openbtn" onclick="openNav()">☰ Open Menu</button>
+
+                    {% comment %} sidebar left slider end {% endcomment %}
+
+
+                      <div class="iq-navbar-logo d-flex align-items-center justify-content-between">
+                          <i class="ri-menu-line wrapper-menu"></i>
+                          <a href="index.html" class="header-logo">
+                            
+                            <img src="{%static 'logo.png' %}" alt="Xeduler"> 
+                              {% comment %} <img src=" {% static 'assets/images/logo.png' %}" class="img-fluid rounded-normal light-logo" alt="logo"> {% endcomment %}
+                              {% comment %} <img src=" {% static 'assets/images/logo-white.png' %}" class="img-fluid rounded-normal darkmode-logo" alt="logo"> {% endcomment %}
+                          </a>
+                      </div>
+                      <div class="iq-menu-horizontal">
+                          <nav class="iq-sidebar-menu">
+                              <div class="iq-sidebar-logo d-flex align-items-center justify-content-between">
+                                  <a href="index.html" class="header-logo">
+                                      <img src=" {% static 'assets/images/logo.png' %}" class="img-fluid rounded-normal" alt="logo">
+                                  </a>
+                                  <div class="iq-menu-bt-sidebar">
+                                      <i class="las la-bars wrapper-menu"></i>
+                                  </div>
+                              </div>
+                              <ul id="iq-sidebar-toggle" class="iq-menu d-flex">
+                                  <li class="active">
+                                      <a href="{%url 'login' %}" class="">
+                                          <span>Login</span>
+                                      </a>
+                                  </li>
+                                  <li class="">
+                                      <a href="" class="">
+                                          <span></span>
+                                      </a>
+                                  </li>
+                                  <li class="">
+                                      <a href="{% url 's_intergration'%}" class="">
+                                          <span>Integration</span>
+                                      </a>
+                                  </li>
+                                  <li class="">
+                                      <a href="#pages" class="collapsed" data-toggle="collapse" aria-expanded="false">
+                                          <span>Attendance</span>
+                                          <i class="ri-arrow-right-s-line iq-arrow-right"></i>
+                                      </a>
+                                      <ul id="pages" class="iq-submenu sub-scrll collapse" data-parent="#iq-sidebar-toggle">
+                                          
+                                        <li class="">
+                                            <a href="" class="">
+                                                <span>Mark Your Attendance</span>
+                                            </a>
+                                             
+                                             
+                                          </li>
+
+
+                                          <li class="">
+                                            <a href="" class="">
+                                                <span>Check Your Attendance Details</span>
+                                            </a>
+                                             
+                                             
+                                          </li>
+
+
+                                          <li class="">
+                                            <a href ="" class="">
+                                                <span> Exam Details </span>
+                                            </a>
+                                             
+                                          </li>
+
+
+
+
+
+                                          
+                                     
+                                  </li>
+                              </ul>
+                          </nav>
+                      </div>
+
+                      
+
+                      <nav class="navbar navbar-expand-lg navbar-light p-0">
+                          <div class="change-mode">
+                              <div class="custom-control custom-switch custom-switch-icon custom-control-indivne">
+                                  <div class="custom-switch-inner">
+                                      <p class="mb-0"> </p>
+                                      <input type="checkbox" class="custom-control-input" id="dark-mode" data-active="true">
+                                      <label class="custom-control-label" for="dark-mode" data-mode="toggle">
+                                          <span class="switch-icon-left"><i class="a-left ri-moon-clear-line"></i></span>
+                                          <span class="switch-icon-right"><i class="a-right ri-sun-line"></i></span>
+                                      </label>
+                                  </div>
+                              </div>
+                          </div>
+                          <button class="navbar-toggler" type="button" data-toggle="collapse"
+                              data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                              aria-label="Toggle navigation">
+                              <i class="ri-menu-3-line"></i>
+                          </button>
+                          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                              <ul class="navbar-nav ml-auto navbar-list align-items-center">
+                                  <li class="nav-item nav-icon dropdown ml-3">
+                                      <a href="#" class="search-toggle dropdown-toggle" id="dropdownMenuButton2" data-toggle="dropdown"
+                                          aria-haspopup="true" aria-expanded="false">
+                                          <i class="las la-envelope"></i>
+                                          <span class="badge badge-primary count-mail rounded-circle">2</span>
+                                          <span class="bg-primary"></span>
+                                      </a>
+                                      <div class="iq-sub-dropdown dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                                          <div class="card shadow-none m-0">
+                                              <div class="card-body p-0 ">
+                                                  <div class="cust-title p-3">
+                                                      <h5 class="mb-0">All Messages</h5>
+                                                  </div>
+                                                  <div class="p-2">
+                                                      
+                                                    
+                                                    <a href="#" class="iq-sub-card">
+                                                          <div class="media align-items-center cust-card p-2">
+                                                              <div class="">
+                                                                  <img class="avatar-40 rounded-small" src="../assets/images/user/u-1.jpg" alt="01">
+                                                              </div>
+                                                              <div class="media-body ml-3">
+                                                                  <h6 class="mb-0">Under Developing</h6>
+                                                                  <small class="mb-0">We Want to see you On..</small>
+                                                              </div>
+                                                          </div>
+                                                      </a>
+                                                      {% comment %} <a href="#" class="iq-sub-card">
+                                                          <div class="media align-items-center cust-card p-2">
+                                                              <div class="">
+                                                                  <img class="avatar-40 rounded-small" src="../assets/images/user/u-2.jpg" alt="02">
+                                                              </div>
+                                                              <div class="media-body ml-3">
+                                                                  <h6 class="mb-0">Lorem Ipsum Watson</h6>
+                                                                  <small class="mb-0">Can we have a Call?</small>
+                                                              </div>
+                                                          </div>
+                                                      </a>
+                                                      <a href="#" class="iq-sub-card">
+                                                          <div class="media align-items-center cust-card p-2">
+                                                              <div class="">
+                                                                  <img class="avatar-40 rounded-small" src="../assets/images/user/u-3.jpg" alt="03">
+                                                              </div>
+                                                              <div class="media-body ml-3">
+                                                                  <h6 class="mb-0">Why do we use it?</h6>
+                                                                  <small class="mb-0">Thank You but now we Don't...</small>
+                                                              </div>
+                                                          </div>
+                                                      </a> {% endcomment %}
+                                                  </div>
+                                                  <a class="right-ic btn-block position-relative p-3 border-top text-center" href="#" role="button">
+                                                      View All
+                                                  </a>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </li>
+                                  <li class="nav-item nav-icon dropdown">
+                                      <a href="#" class="search-toggle dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown"
+                                          aria-haspopup="true" aria-expanded="false">
+                                          <i class="las la-bell"></i>
+                                          <span class="badge badge-primary count-mail rounded-circle">2</span>
+                                          <span class="bg-primary"></span>
+                                      </a>
+                                      <div class="iq-sub-dropdown dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                          <div class="card shadow-none m-0">
+                                              <div class="card-body p-0 ">
+                                                  <div class="cust-title p-3">
+                                                      <h5 class="mb-0">Notifications</h5>
+                                                  </div>
+                                                  <div class="p-2">
+                                                     
+
+                                                      <a href="#" class="iq-sub-card">
+                                                          <div class="media align-items-center cust-card p-2">
+                                                              <div class="">
+                                                                
+                                                               
+                                                                    
+                                                                  {% comment %} <img class="avatar-40 rounded-small" src=" {% static 'assets/images/user/u-3.jpg' %}" alt="03"> {% endcomment %}
+                                                              </div>
+                                                              <div class="media-body ml-3">
+                                                                  <div class="d-flex align-items-center justify-content-between">
+                                                                      <h6 class="mb-0">Cloud Computing Lecture </h6>
+                                                                      <small class="mb-0">10 Min Ago</small>
+                                                                  </div>
+                                                                  <small class="mb-0"></small>
+                                                              </div>
+
+
+                                                          
+
+                                                          </div>
+                                                      </a>
+
+
+
+
+                                                      <a href="#" class="iq-sub-card">
+                                                        <div class="media align-items-center cust-card p-2">
+                                                            <div class="">
+                                                              
+                                                             
+                                                                  
+                                                                {% comment %} <img class="avatar-40 rounded-small" src=" {% static 'assets/images/user/u-3.jpg' %}" alt="03"> {% endcomment %}
+                                                            </div>
+                                                            <div class="media-body ml-3">
+                                                                <div class="d-flex align-items-center justify-content-between">
+                                                                    <h6 class="mb-0">Upcomming Lecture </h6>
+                                                                    <small class="mb-0">10 Min Ago</small>
+                                                                </div>
+                                                                <small class="mb-0"></small>
+                                                            </div>
+
+
+                                                        
+
+                                                        </div>
+                                                    </a>
+
+
+
+                                                  </div>
+                                                  <a class="right-ic btn-block position-relative p-3 border-top text-center" href="#" role="button">
+                                                      See All Notification
+                                                  </a>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </li>
+                                  <li class="caption-content">
+                                      <a href="#" class="search-toggle dropdown-toggle d-flex align-items-center" id="dropdownMenuButton3" data-toggle="dropdown"
+                                          aria-haspopup="true" aria-expanded="false">
+                                          <img src=" {% static 'assets/images/user/01.jpg' %}" class="avatar-40 img-fluid rounded" alt="user">
+                                          <div class="caption ml-3">
+                                              <h6 class="mb-0 line-height">{{ user.username }} <i class="las la-angle-down ml-3"></i></h6>
+                                          </div>
+                                      </a>
+                                      <div class="iq-sub-dropdown dropdown-menu user-dropdown" aria-labelledby="dropdownMenuButton3">
+                                          <div class="card m-0">
+                                              <div class="card-body p-0">
+                                                  <div class="py-3">
+                                                      <a href="{% url 'login' %}" class="iq-sub-card">
+                                                          <div class="media align-items-center">
+                                                              <i class="ri-user-line mr-3"></i>
+                                                              <h6>Account Settings</h6>
+                                                          </div>
+                                                      </a>
+                                                      <a href="{% url 'calendar_connections' %}" class="iq-sub-card">
+                                                          <div class="media align-items-center">
+                                                              <i class="ri-calendar-line mr-3"></i>
+                                                              <h6>Calender Connections</h6>
+                                                          </div>
+                                                      </a>
+                                                      <a href="{% url 'groups' %}" class="iq-sub-card">
+                                                          <div class="media align-items-center">
+                                                              <i class="ri-group-line mr-3"></i>
+                                                              <h6>Groups</h6>
+                                                          </div>
+                                                      </a>
+                                                      <a href="{% url 'privacy_policy'%}" class="iq-sub-card">
+                                                          <div class="media align-items-center">
+                                                              <i class="ri-lock-line mr-3"></i>
+                                                              <h6>Privacy & Security Settings</h6>
+                                                          </div>
+                                                      </a>
+                                                      <a href="#popup1" data-toggle="modal" data-target="#exampleModalCenter" class="iq-sub-card">
+                                                          <div class="media align-items-center">
+                                                              <i class="ri-links-line mr-3"></i>
+                                                              <h6>Share Your Link</h6>
+                                                          </div>
+                                                      </a>
+                                                  </div>
+                                                  <a class="right-ic p-3 border-top btn-block position-relative text-center" href="{% url 'student_logout'%}" role="button">
+                                                       Logout
+                                                  </a>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </li>
+                              </ul>
+                          </div>
+                      </nav>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+    </div>
+</div>
+
+
+
+
+
+<style>
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+    
+    /* Modal Content */
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+    
+    /* The Close Button */
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+
+
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+<!-- Modal content -->
+<div class="modal-content">
+<span class="close">&times;</span>
+<p>Login to your account <a href="{% url 'login' %}">Click Here</a></p>
+
+</div>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// Open the modal automatically when the page loads
+window.onload = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
