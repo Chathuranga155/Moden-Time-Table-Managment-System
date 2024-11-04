@@ -62,6 +62,17 @@ A Django web application for managing and organizing academic timetables. This s
 
 ## Project Structure
 
+![s1](https://github.com/user-attachments/assets/711817fd-45ce-4d21-b6ad-0cc801b33a1b)
+![s2](https://github.com/user-attachments/assets/eb30aa9d-31e4-4d68-9814-2a18d6f826da)
+![s3](https://github.com/user-attachments/assets/641862bd-01ab-4a46-adf8-758bdfc14a3e)
+![s4](https://github.com/user-attachments/assets/af4a6f4a-f8df-4f3d-b565-fbf34a061863)
+![s5](https://github.com/user-attachments/assets/6c14e962-0235-4752-860f-ac78359318f7)
+![s7](https://github.com/user-attachments/assets/d10b81ce-53e2-4eef-a8aa-f42326f74918)
+![s8](https://github.com/user-attachments/assets/965ee51b-59b0-4aad-9e01-2cbf94f463fa)
+![s9](https://github.com/user-attachments/assets/5557907d-528d-475f-8ba2-6676ab11e025)
+![s10](https://github.com/user-attachments/assets/7fc097dd-5c1f-4fc5-bec6-dfb04e1e2e31)
+![s11](https://github.com/user-attachments/assets/fb4fd202-2330-48a1-a89c-65a170d433b8)
+
 ```plaintext
 timetable-management-system/
 ├── attendance/                # App for managing attendance
@@ -76,13 +87,4 @@ timetable-management-system/
 └── README.md                  # Project documentation
 
 
-![s1](https://github.com/user-attachments/assets/711817fd-45ce-4d21-b6ad-0cc801b33a1b)
-![s2](https://github.com/user-attachments/assets/eb30aa9d-31e4-4d68-9814-2a18d6f826da)
-![s3](https://github.com/user-attachments/assets/641862bd-01ab-4a46-adf8-758bdfc14a3e)
-![s4](https://github.com/user-attachments/assets/af4a6f4a-f8df-4f3d-b565-fbf34a061863)
-![s5](https://github.com/user-attachments/assets/6c14e962-0235-4752-860f-ac78359318f7)
-![s7](https://github.com/user-attachments/assets/d10b81ce-53e2-4eef-a8aa-f42326f74918)
-![s8](https://github.com/user-attachments/assets/965ee51b-59b0-4aad-9e01-2cbf94f463fa)
-![s9](https://github.com/user-attachments/assets/5557907d-528d-475f-8ba2-6676ab11e025)
-![s10](https://github.com/user-attachments/assets/7fc097dd-5c1f-4fc5-bec6-dfb04e1e2e31)
-![s11](https://github.com/user-attachments/assets/fb4fd202-2330-48a1-a89c-65a170d433b8)
+
